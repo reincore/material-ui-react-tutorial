@@ -13,8 +13,8 @@ import HelpIcon from "@material-ui/icons/Help";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
-  list: {
-    width: 450
+  paper: {
+    width: 250
   }
 });
 
@@ -22,31 +22,30 @@ const MenuDrawer = props => {
   const classes = useStyles();
 
   return (
-    <div className={classes.list}>
-      <Drawer
-        anchor="left"
-        open={props.isDrawerShown}
-        onClose={() => props.setIsDrawerShown(false)}
-      >
-        <List>
-          <ListItem button key={"Home"}>
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Home"} />
-          </ListItem>
-        </List>
-        <Divider />
-        <List>
-          <ListItem button key={"About"}>
-            <ListItemIcon>
-              <HelpIcon />
-            </ListItemIcon>
-            <ListItemText primary={"About"} />
-          </ListItem>
-        </List>
-      </Drawer>
-    </div>
+    <Drawer
+      classes={{ paper: classes.paper }}
+      anchor="left"
+      open={props.isDrawerShown}
+      onClose={() => props.setIsDrawerShown(false)}
+    >
+      <List>
+        <ListItem button key={"Home"}>
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Home"} />
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem button key={"About"}>
+          <ListItemIcon>
+            <HelpIcon />
+          </ListItemIcon>
+          <ListItemText primary={"About"} />
+        </ListItem>
+      </List>
+    </Drawer>
   );
 };
 
